@@ -15,8 +15,9 @@ export const saveItem = async (data) => {
   });
 };
 export const getAllFoodItems = async (data) => {
-  await getDocs(
-    query(collection(fireStore, "foodItems"), orderBy("id", "desc"))
+  const items=await getDocs(
+    query(collection(fireStore,"foodItems"),orderBy("id","desc"))
   );
-  return getAllFoodItems.docs.map((doc) => doc.data());
+
+  return items.docs.map((doc) => doc.data());
 };

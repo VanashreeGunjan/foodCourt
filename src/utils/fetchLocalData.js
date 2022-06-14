@@ -6,3 +6,12 @@ export const FetchUser = () => {
 
   return userInfo;
 };
+
+export const FetchCart = () => {
+  const cartInfo =
+    localStorage.getItem("cartItems") !== "undefined"
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : localStorage.clear();
+
+  return cartInfo ? cartInfo : [];
+};

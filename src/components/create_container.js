@@ -202,7 +202,7 @@ export default function CreateContainer() {
               ) : (
                 <>
                   <div className="relative h-full ">
-                    <img
+                    <image
                       src={imageAsset}
                       alt="uploaded image"
                       className="h-full w-full object-cover"
