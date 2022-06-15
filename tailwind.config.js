@@ -52,5 +52,5 @@ module.exports = {
       },
     },
   },
-  plugins: ['tailwaind-scrollbar'],
+  plugins: ['tailwind-scrollbar'],
 }

@@ -56,7 +56,7 @@ export default function Navbar() {
   let tokenValue = localStorage.getItem("token");
   const handleHomepage = () => {
     if (tokenValue) {
-      navigate("/hompage");
+      navigate("/homepage");
     }
   };
   const userLogout = () => {
@@ -190,29 +190,6 @@ export default function Navbar() {
                   </div>
                 </div>
               )}
-
-              {/* {isMenu && (
-                <motion.div
-                  initial={{ opacity: 0, sacle: 0.6 }}
-                  animate={{ opacity: 1, sacle: 1 }}
-                  exit={{ opacity: 0, sacle: 0.6 }}
-                  className="w-40 bg-white rounded-lg flex flex-col absolute top-10 right-1 "
-                >
-                  {user && user.email === "parkashmi66@gmail.com" && (
-                    <Link to={"/createItem"}>
-                      <p className="flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-slate-100 hover:rounded-md transition-all duration-100 ease-in-out text-textColor text-base">
-                        New Item <MdAdd />
-                      </p>
-                    </Link>
-                  )}
-                  <p
-                    onClick={logout}
-                    className="flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-slate-100 hover:rounded-md transition-all duration-100 ease-in-out text-textColor text-base"
-                  >
-                    Logout <MdLogout />
-                  </p>
-                </motion.div>
-              )} */}
             </div>
           </div>
         </div>

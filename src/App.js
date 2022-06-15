@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./components/login";
 import Signup from "./components/signup";
+import RequireAuth from "./components/RequireAuth";
 
 function App() {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -36,11 +37,17 @@ function App() {
         <main className="mt-20  md:mt-20 px-4 md:px-16 py-4 w-full">
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup/>}/>
+            <Route path="/signup" element={<Signup />} />
             <Route path="/homepage" element={<MainContainer />} />
-            <Route path="/*" element={<MainContainer />} />
+            <Route
+              path="/*"
+              element={
+                <RequireAuth>
+                  <MainContainer />
+                </RequireAuth>
+              }
+            />
             <Route path="/createItem" element={<CreateContainer />} />
-            <Route path="/home" element={<MainContainer />} />
           </Routes>
           <ToastContainer />
         </main>

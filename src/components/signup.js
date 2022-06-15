@@ -8,15 +8,14 @@ export default function Signup() {
     setPassword: "",
     confirmpassword: "",
   });
-  const handleSignupSubmit = () => {
-    const userVariable = userDetails;
-    console.log("userinformation are", userVariable);
-  };
+  function handleClick(){
+    localStorage.setItem('userDetails',JSON.stringify(userDetails))
+  }
   return (
     <div className="h-[100vh]">
       <div className="container mx-auto">
         <div className="w-full   flex justify-center ">
-          <form className="bg-green p-24 w-full flex  flex-col items-center gap-4  shadow-xl rounded-xl">
+          <div className="bg-green p-24 w-full flex  flex-col items-center gap-4  shadow-xl rounded-xl">
             <div className="h-14 w-96  rounded-lg p-2 flex gap-2 bg-white ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -139,11 +138,13 @@ export default function Signup() {
             </div>
             {/* <div className="text-red-600">{error}</div> */}
             <div className="h-12 w-36 bg-orange-400 rounded-md flex justify-center items-center font-bold text-white  text-xl">
-              <button onClick={handleSignupSubmit}>
+              <button
+              onClick={()=>handleClick()}
+              >
                 <p className="font-extrabold">Signup</p>
               </button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
