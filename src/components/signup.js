@@ -1,16 +1,49 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import errorMessages from "../utils/errormessages";
 // import { useNavigate } from "react-router-dom";
+const initialErrors = {
+  username: "",
+  email: "",
+  setPassword: "",
+  confirmpassword: "",
+};
 
 export default function Signup() {
+  const [isFirstTimeFired, setIsFirstTimeFired] = useState(false);
   const [userDetails, setUserDetails] = useState({
     username: "",
     email: "",
     setPassword: "",
     confirmpassword: "",
   });
-  function handleClick(){
-    localStorage.setItem('userDetails',JSON.stringify(userDetails))
+  const [errors, setErrors] = useState({
+    ...initialErrors,
+  });
+  const validateForm = useCallback(() => {
+    let validated = true;
+    const errorsLocal = {
+      ...initialErrors,
+    };
+    if (!userDetails.username) {
+      validated = false;
+      errorsLocal.username = errorMessages.RequiredUserName;
+    }
+    if(!userDetails)
+    setErrors({
+      ...errorsLocal,
+    });
+    return validated;
+  }, [userDetails]);
+  function checkValidated() {
+    setIsFirstTimeFired(true);
+    const validated = validateForm();
+    if (validated) {
+      localStorage.setItem("userDetails", JSON.stringify(userDetails));
+    }
   }
+  useEffect(() => {
+    if (isFirstTimeFired) validateForm();
+  }, [validateForm, isFirstTimeFired]);
   return (
     <div className="h-[100vh]">
       <div className="container mx-auto">
@@ -76,6 +109,7 @@ export default function Signup() {
                 }
               />
             </div>
+            <div>{errors}</div>
             {/* <div className="text-red-600">{error}</div> */}
             <div className="h-14 w-96 bg-white rounded-lg p-2 flex gap-2">
               <svg
@@ -138,9 +172,7 @@ export default function Signup() {
             </div>
             {/* <div className="text-red-600">{error}</div> */}
             <div className="h-12 w-36 bg-orange-400 rounded-md flex justify-center items-center font-bold text-white  text-xl">
-              <button
-              onClick={()=>handleClick()}
-              >
+              <button onClick={() => checkValidated()}>
                 <p className="font-extrabold">Signup</p>
               </button>
             </div>

@@ -98,9 +98,11 @@ export default function Navbar() {
               >
                 Home
               </li>
-              <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer ">
+              <a 
+              href="#menu"
+              className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer ">
                 Menu
-              </li>
+              </a>
               <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer ">
                 About Us
               </li>

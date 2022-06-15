@@ -33,7 +33,7 @@ export default function MenuContainer() {
             ))}
         </div>
         <div className="w-full  ">
-          <RowContainer flag={false}  data={foodItems?.filter(item=>item.category==filter)}/>
+          <RowContainer flag={false}  data={foodItems?.filter(item=>item.category===filter)}/>
         </div>
       </div>
     </section>

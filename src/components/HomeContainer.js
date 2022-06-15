@@ -30,12 +30,13 @@ export default function HomeContainer() {
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and trinagele.
         </p>
-        <button
+        <a
+        href="#fruit"
           type="button"
           className=" md:w-auto bg-gradient-to-br from-orange-400 to-orange-500 w-full px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100"
         >
           Order Now
-        </button>
+        </a>
       </div>
       <div className="py-2  flex-1 flex items-center relative">
         <img
